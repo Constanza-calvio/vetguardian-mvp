@@ -1,15 +1,19 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* El verde lima característico de tus fotos */
+  --color-brand-lime: #D9FF66; 
+  /* Un negro suave para textos */
+  --color-brand-dark: #1A1A1A;
+  /* Gris de fondo para las secciones */
+  --color-brand-bg: #F4F7F4;
+  
+  --font-sans: "Inter", "Geist Sans", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --background: #dfdfdf;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +26,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }

@@ -6,7 +6,8 @@ import { auth } from "@clerk/nextjs/server";
 export default async function PatientPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const { sessionClaims } = await auth();
-  const role = sessionClaims?.metadata?.role || "vet"; // Detectar rol
+  const claims = sessionClaims as any; // Esto silencia el error de TypeScript
+  const role = claims?.metadata?.role || "vet";
 
   const numericId = parseInt(id, 10);
   if (!numericId || isNaN(numericId)) return notFound();
